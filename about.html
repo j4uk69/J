@@ -65,5 +65,17 @@ Aliquam eget pharetra diam. Nulla placerat lorem at turpis tempor, vel ultrices 
     <footer>
       <p>Acme Web Design, Copyright &copy; 2019</p>
     </footer>
+    <script>
+      document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        emailjs.sendForm("P0ZBwKY0VwLGHSIGnObtu", "template_orwljow", this)
+          .then(() => {
+            document.getElementById("success-msg").style.display = "block";
+            this.reset();
+          }, (error) => {
+            alert("Failed to send: " + error.text);
+          });
+      });
+    </script>
   </body>
 </html>
