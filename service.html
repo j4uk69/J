@@ -9,23 +9,6 @@
     <link rel="stylesheet" href="service.css">
     <link rel="icon" href="favicon.png">
   </head>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("_9yP7-dEajmw-CElk");
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    emailjs.sendForm("P0ZBwKY0VwLGHSIGnObtu", "template_orwljow", this)
-      .then(() => {
-        document.getElementById("success-msg").style.display = "block";
-        this.reset();
-      }, (error) => {
-        alert("Failed to send: " + error.text);
-      });
-  });
-</script>
   <body>
     <header>
       <div class="container">
@@ -101,7 +84,24 @@
     </section>
 
     <footer>
-      <p>Acme Web Design, Copyright &copy; 2019</p>
+      <p>Acme Web Design, Copyright &copy; 2019</p>   
     </footer>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("_9yP7-dEajmw-CElk");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    emailjs.sendForm("P0ZBwKY0VwLGHSIGnObtu", "template_orwljow", this)
+      .then(() => {
+        document.getElementById("success-msg").style.display = "block";
+        this.reset();
+      }, (error) => {
+        alert("Failed to send: " + error.text);
+      });
+  });
+    </script>
   </body>
 </html>
