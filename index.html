@@ -3,11 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="Affordable and professional web design">
-	  <meta name="keywords" content="web design, affordable web design, professional web design">
-  	<meta name="author" content="Brad Traversy">
-    <title>Acme Web Deisgn | Welcome</title>
-    <link rel="stylesheet" href="service.css">
-    <link rel="icon" href="favicon.png">
+    <meta name="keywords" content="web design, affordable web design, professional web design">
+    <meta name="author" content="Brad Traversy">
+    <title>Acme Web Design | Welcome</title>
+    <link rel="stylesheet" href="style.css/service.css">
+    <link rel="icon" href="image/favicon.png">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init("_9yP7-dEajmw-CElk");
+      })();
+    </script>
   </head>
   <body>
     <header>
@@ -35,9 +41,10 @@
     <section id="newsletter">
       <div class="container">
         <h1>Subscribe To Our Newsletter</h1>
-        <form>
-          <input type="email" placeholder="Enter Email..." required>
+        <form id="contact-form">
+          <input type="email" name="user_email" placeholder="Enter Email..." required>
           <button type="submit" class="button_1">Subscribe</button>
+          <p id="success-msg" style="color: green; font-weight: bold; display: none;">Message sent successfully!</p>
         </form>
       </div>
     </section>
@@ -45,17 +52,17 @@
     <section id="boxes">
       <div class="container">
         <div class="box">
-          <img src="logo_html.png">
+          <img src="image/logo_html.png">
           <h3>HTML5 Markup</h3>
           <p>As for the rest,its a filler text commonly used in the publishing and Graphic design industries to replace the real content</p>
         </div>
         <div class="box">
-          <img src="logo_css.png">
+          <img src="image/logo_css.png">
           <h3>CSS3 Styling</h3>
           <p>As for the rest,its a filler text commonly used in the publishing and Graphic design industries to replace the real content</p>
         </div>
         <div class="box">
-          <img src="logo_brush.png">
+          <img src="image/logo_brush.png">
           <h3>Graphic Design</h3>
           <p>As for the rest,its a filler text commonly used in the publishing and Graphic design industries to replace the real content</p>
         </div>
@@ -65,5 +72,19 @@
     <footer>
       <p>Acme Web Design, Copyright &copy; 2019</p>
     </footer>
+
+    <script>
+      document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        emailjs.sendForm("P0ZBwKY0VwLGHSIGnObtu", "template_orwljow", this)
+          .then(() => {
+            document.getElementById("success-msg").style.display = "block";
+            this.reset();
+          }, (error) => {
+            alert("Failed to send: " + error.text);
+          });
+      });
+    </script>
   </body>
 </html>
+ 
