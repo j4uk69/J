@@ -78,20 +78,22 @@
         <aside id="sidebar">
           <div class="dark">
             <h3>Get A Quote</h3>
-            <form action="https://formspree.io/jafarimustafa257@gmail.com" method="POST"> 
+            <form id="contact-form"> 
   						<div>
   							<label>Name</label><br>
-  							<input type="text" placeholder="Name">
+  							<input type="text" name="user_name" required>
   						</div>
   						<div>
   							<label>Email</label><br>
-  							<input type="email" placeholder="Email Address">
+  							<input type="email" name="user_name" required>
   						</div>
   						<div>
   							<label>Message</label><br>
-  							<textarea placeholder="Message"></textarea>
+  							<textarea name="Message" required></textarea>
   						</div>
-  						<button class="button_1" type="submit">Send</button>
+  						<button type="submit">Send</button> <p id="success-msg" style="color :green ; font-weight : bold; display: none;">message sent successfully!</p>
+
+
 					</form>
           </div>
         </aside>
