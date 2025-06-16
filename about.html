@@ -28,7 +28,7 @@
     <section id="newsletter">
       <div class="container">
         <h1>Subscribe To Our Newsletter</h1>
-        <form>
+        <form action="https://formspree.io/f/xgvyyjzp" method="POST">
           <input type="email" placeholder="Enter Email..." required>
           <button type="submit" class="button_1">Subscribe</button>
         </form>
@@ -59,22 +59,5 @@ Aliquam eget pharetra diam. Nulla placerat lorem at turpis tempor, vel ultrices 
     <footer>
       <p>Acme Web Design, Copyright &copy; 2019</p>
     </footer>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("_9yP7-dEajmw-CElk");
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault();
-    emailjs.sendForm("P0ZBwKY0VwLGHSIGnObtu", "template_orwljow", this)
-      .then(() => {
-        document.getElementById("success-msg").style.display = "block";
-        this.reset();
-      }, (error) => {
-        alert("Failed to send: " + error.text);
-      });
-  });
-   </script>
   </body>
 </html>
